@@ -128,8 +128,7 @@ const footer = (
             {  props.todo.tags.map(t=><h3>{t}</h3>)}
             </Card>
         </div>
-     {/* <h1>{props.todo.title}</h1>
-     {props.todo.tags.map(t=><h2>{t}</h2>)} */}
+    
        
      </>  
     )

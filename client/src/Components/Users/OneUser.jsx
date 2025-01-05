@@ -2,7 +2,6 @@ import axios from 'axios'
 import { useState, useRef } from 'react'
 import React from 'react';
 import { Button } from 'primereact/button';
-import { MultiSelect } from 'primereact/multiselect';
 import { Card } from 'primereact/card';
 import { Dialog } from 'primereact/dialog';
 import { InputText } from 'primereact/inputtext';
@@ -119,9 +118,7 @@ const OneUser = (props) => {
 
                 </Card>
             </div>
-            {/* <h1>{props.user.name}</h1>
-     {props.user.username.map(t=><h2>{t}</h2>)} */}
-
+    
         </>
     )
 }

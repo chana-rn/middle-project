@@ -1,8 +1,8 @@
 import axios from 'axios'
-import { useState, useRef } from 'react'
+import {  useRef } from 'react'
 import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
-import { MultiSelect } from 'primereact/multiselect';
+
 import { InputText } from 'primereact/inputtext';
 const AddUser = (props) => {
   

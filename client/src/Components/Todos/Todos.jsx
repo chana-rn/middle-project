@@ -33,9 +33,7 @@ const Todos = () => {
         getTodos()
     }, [])
 
-    // useEffect(() => {
-    //     getbyTitle(titleRef)
-    // }, [titleRef])
+ 
 
     const getbyTitle = async (titleRef) => {
         try {
@@ -67,14 +65,13 @@ const Todos = () => {
 
     return (
         <>
-        <h1>משימות</h1>
-            <div className="card flex flex-column md:flex-row gap-3">
-                <div className="p-inputgroup flex-1" style={{ marginLeft: "40%", marginRight: "30%" }} >
+        <h1 style={ {margin:"0"}}  className="card flex justify-content-center">משימות</h1>
+            <div  style={ {margin:"0"}} className="card flex flex-column md:flex-row gap-3">
+                <div className="p-inputgroup flex-1" style={{ marginLeft: "40%", marginRight: "20%" }} >
+                <div className="p-inputgroup flex-1" style={{ marginRight: '20%' }}>
                     <InputText icon="pi pi-search" placeholder="שם משימה"  style={{ direction: "rtl" }} ref={titleRef}  onChange={()=>{titleRef.current.value? getbyTitle(titleRef):getTodos()}} />
-                    {/* <Button icon="pi pi-search"  severity='info' onClick={() => {
-                        getbyTitle(titleRef)
-                    }} /> */}
-                    
+                    <Button icon="pi pi-search"  severity='info'/>
+                 </div>   
                 </div>
                 {flag?
                 <Button icon="pi pi-search" rounded aria-label="Filter" label="משימות שלא השלמו" severity='info' onClick={

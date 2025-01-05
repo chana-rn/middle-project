@@ -5,13 +5,12 @@ import { useEffect } from 'react'
 import AddPost from './AddPost'
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
-import { IconField } from 'primereact/iconfield';
-import { InputIcon } from 'primereact/inputicon';
+
 
 const Posts = () => {
     const [postData, setPostData] = useState([])
     const [visible, setVisible] = useState(false);
-    const [flag, setFlag] = useState(true);
+    
 
     const titleRef = useRef(null)
 
@@ -23,7 +22,7 @@ const Posts = () => {
                 console.log(postData)
 
                 setPostData(res.data)
-                setFlag(true)
+                
             }
         } catch (e) {
             console.error(e)
@@ -35,10 +34,7 @@ const Posts = () => {
         getPosts()
     }, [])
 
-    // useEffect(() => {
-    //     getbyTitle(titleRef)
-    // }, [titleRef])
-
+   
     const getbyTitle = async (titleRef) => {
         try {
 
@@ -56,16 +52,15 @@ const Posts = () => {
 
 
     return (
-        <><h1>מאמרים</h1>
-            <div className="card flex flex-column md:flex-row gap-3">
-
-                {/* <div className="p-inputgroup flex-1" style={{ marginLeft: "40%", marginRight: "30%" }} > */}
-                    <IconField style={{ marginLeft: "40%", marginRight: "30%" }}>
-                        <InputIcon className="pi pi-search" ></InputIcon>
+        <><h1 style={ {margin:"0"}}  className="card flex justify-content-center">מאמרים</h1>
+            <div  style={ {margin:"0"}} className="card flex flex-column md:flex-row gap-3">
+            <div className="p-inputgroup flex-1" style={{ marginLeft: "40%", marginRight: "40%" }} >
+                    
                         <InputText  placeholder="הכנס שם מאמר" style={{ direction: "rtl" }} ref={titleRef} onChange={() => { titleRef.current.value ? getbyTitle(titleRef) : getPosts() }} />
-                    </IconField>
+                        <Button icon="pi pi-search"  severity='info' />
+                    
 
-                {/* //</div> */}
+                </div>
  
 
             </div>

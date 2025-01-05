@@ -2,7 +2,6 @@ import axios from 'axios'
 import { useState, useRef } from 'react'
 import React from 'react';
 import { Button } from 'primereact/button';
-import { MultiSelect } from 'primereact/multiselect';
 import { Card } from 'primereact/card';
 import { Dialog } from 'primereact/dialog';
 import { InputText } from 'primereact/inputtext';
@@ -95,14 +94,13 @@ const OnePost = (props) => {
         <Card title={props.post.title} footer={footer} className="md:w-25rem">
 
         <Fieldset legend="גוף המאמר" toggleable>
-                <p className="m-0">
+                <p className="m-0" style={{width:"20px"}}>
                     {props.post.body}
                 </p>
             </Fieldset>
         </Card>
       </div>
-      {/* <h1>{props.post.title}</h1>
-     {props.post.body.map(t=><h2>{t}</h2>)} */}
+   
 
     </>
   )
