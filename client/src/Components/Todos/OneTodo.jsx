@@ -15,22 +15,22 @@ const OneTodo = (props) => {
   const titleRef = useRef(null)
   const tagsRef = useRef(null)
   const [visible, setVisible] = useState(false);
-  const cities = [
+  const tagsOptions = [
     { name: 'בית', code: 'בית' },
     { name: 'לימודים', code: 'לימודים' },
     { name: 'עבודה', code: 'עבודה' },
     { name: 'בריאות', code: 'בריאות' },
   ];
   
-  const [selectedCities, setSelectedCities] = useState([]);
+  const [selectedTagsOptions, setSelectedTagsOptions] = useState([]);
   
   useEffect(() => {
     if (props.todo.tags && props.todo.tags.length > 0) {
       const formattedTags = props.todo.tags.map(tag => {
         const trimmedTag = tag.trim(); 
-        return cities.find(city => city.name === trimmedTag) || { name: trimmedTag, code: trimmedTag };
+        return tagsOptions.find(city => city.name === trimmedTag) || { name: trimmedTag, code: trimmedTag };
       });
-      setSelectedCities(formattedTags);
+      setSelectedTagsOptions(formattedTags);
     }
   }, [props.todo.tags]);
   const deletetodo = async () => {
@@ -111,8 +111,8 @@ const footer = (
                             <label htmlFor="username" className="text-primary-50 font-semibold">
                             תגיות
                             </label>
-                            {/* <InputText id="username" defaultValue={props.todo.tags} className="bg-white-alpha-20 border-none p-3 text-primary-50" ref={tagsRef} ></InputText> */}
-                            <MultiSelect value={selectedCities} onChange={(e) =>{setSelectedCities(e.value);return}} options={cities} optionLabel="name" 
+            
+                            <MultiSelect value={selectedTagsOptions} onChange={(e) =>{setSelectedTagsOptions(e.value);return}} options={tagsOptions} optionLabel="name" 
                 placeholder="Select tags" inputRef={tagsRef} className="bg-white-alpha-20 border-none p-3 text-primary-50"  />
                         </div>
                         <div className="flex align-items-center gap-2">
